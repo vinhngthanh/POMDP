@@ -95,7 +95,7 @@ def viterbi_algorithm(observations, actions, state_weights, state_action_weights
                     dp[t, j] = prob
                     backpointer[t, j] = i
 
-    best_path = np.zeros(num_steps, dtype=int)
+    best_path = np.zeros(num_steps, dtype = int)
     best_path[-1] = np.argmax(dp[-1, :])
     
     for t in range(num_steps - 2, -1, -1):
@@ -110,9 +110,9 @@ def write_state_sequence(filename, states):
         file.write(f"{n}\n")
         for i, state in enumerate(states):
             if i < n - 1:
-                file.write(f'"{state}"\n')
+                file.write(f'{state}\n')
             else:
-                file.write(f'"{state}"')
+                file.write(f'{state}')
 
 def main():
     state_weights = normalize_state_weights(read_state_weights('state_weights.txt'))
